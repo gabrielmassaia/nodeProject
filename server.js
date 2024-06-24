@@ -2,15 +2,21 @@ import { fastify } from 'fastify'
 
 const server = fastify()
 
-server.get('/', () => {
+// POST http://localhost:3333/videos
+
+server.post('/videos', () => {
     return 'Hello World'
 })
 
-server.get('/hello', () => {
-    return 'Hello gbmassaia'
+server.get('/videos', () => {
+    return 'Hello gbmassaaia'
 })
 
-server.get('/node', () => {
+server.put('/videos/:id', () => {
+    return 'Hello nodejson'
+})
+
+server.delete('/videos/:id', () => {
     return 'Hello nodejson'
 })
 

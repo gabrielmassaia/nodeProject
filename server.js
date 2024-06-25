@@ -19,15 +19,35 @@ server.post('/videos', (request, reply) => {
 })
 
 server.get('/videos', () => {
-    return 'Hello gbmassaaia'
+    const videos = database.list()
+
+    console.log(videos)
+
+    return videos
 })
 
-server.put('/videos/:id', () => {
-    return 'Hello nodejson'
+server.put('/videos/:id', (request, reply) => {
+
+    const videoId = request.params.id
+    const { title, description, duration } = request.body
+
+    database.update(videoId, {
+        title,
+        description,
+        duration,
+    })
+
+    return reply.status(204).send()
 })
 
-server.delete('/videos/:id', () => {
-    return 'Hello nodejson'
+server.delete('/videos/:id', (request, reply) => {
+
+    const videoId = request.params.id
+
+    database.delete(videoId)
+
+    return reply.status(204).send()
+
 })
 
 server.listen({

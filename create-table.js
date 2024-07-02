@@ -1,4 +1,4 @@
-import { sql } from './db.js'
+import { sql } from './db.js';
 
 sql`
 CREATE TABLE videos (
@@ -8,5 +8,7 @@ CREATE TABLE videos (
     duration INTEGER NOT NULL
 );
 `.then(() => {
-    console.log('Tabela criada')
-})
+    console.log('Tabela criada');
+}).catch(err => {
+    console.error('Erro ao criar a tabela', err);
+});

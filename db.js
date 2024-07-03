@@ -15,3 +15,4 @@ export const sql = postgres({
     options: `project=${ENDPOINT_ID}`,
   },
 });
+
